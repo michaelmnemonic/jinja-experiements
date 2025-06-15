@@ -11,6 +11,7 @@ def load_list_of_functions(file_path):
             print(exc)
 
 def main():
+    # Load Template
     env = Environment(
         loader=PackageLoader("generate-yaml"),
         autoescape=select_autoescape(),
@@ -43,9 +44,11 @@ def main():
         input.pop(this_interface_to_remove)
         output.pop(this_interface_to_remove)
 
+    # Assign in- and outputs
     example_deployment.update({"input": input})
     example_deployment.update({"output": output})
     
+    # Render template and write to file
     template = env.get_template("deployment.yaml.j2")
     with open(example_deployment["name"].lower().replace(" ", "_") + ".yaml", "w") as file:
         file.write(template.render(example_deployment))
