@@ -25,12 +25,15 @@ def main():
         "description": "This is an example deployment to test jinja templates",
         "functions": ["read_input_data", "validate_raw_input"]}
 
-    # in and outputs are the combined in and outputs of functions
+    # in and outputs are the combined in and outputs of all functions
     input = {}
+    output = {}
     for thisFunction in example_deployment["functions"]:
         input.update(list_of_functions[thisFunction]["input"])
+        output.update(list_of_functions[thisFunction]["output"])
 
     example_deployment.update({"input": input})
+    example_deployment.update({"output": output})
     
     template = env.get_template("deployment.yaml.j2")
     with open(example_deployment["name"].lower().replace(" ", "_") + ".yaml", "w") as file:
