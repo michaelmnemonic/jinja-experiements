@@ -33,7 +33,8 @@ def main():
     example_deployment.update({"input": input})
     
     template = env.get_template("deployment.yaml.j2")
-    print(template.render(example_deployment))
+    with open(example_deployment["name"].lower().replace(" ", "_") + ".yaml", "w") as file:
+        file.write(template.render(example_deployment))
 
 if __name__ == "__main__":
     main()
