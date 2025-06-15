@@ -20,4 +20,7 @@ functions:
             validated_data: {
                 type: data
             }
+            state_of_function: {
+                type: error_code
+            }
 

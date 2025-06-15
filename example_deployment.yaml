@@ -6,16 +6,13 @@ deployment:
             external_input: {
                 type: raw_data,
             }
-            input_data: {
-                type: data,
-            }
             
         output:
-            input_data: {
-                type: data,
-            }
             validated_data: {
                 type: data,
+            }
+            state_of_function: {
+                type: error_code,
             }
             
         functions:

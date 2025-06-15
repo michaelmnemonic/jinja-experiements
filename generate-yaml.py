@@ -34,6 +34,15 @@ def main():
         input.update(list_of_functions[thisFunction]["input"])
         output.update(list_of_functions[thisFunction]["output"])
 
+    # ...except if in- and output are the same, these are assumed to be internal and therefore removed from the deployment
+    interfaces_to_remove = []
+    for thisInput in input:
+        if thisInput in output:
+            interfaces_to_remove.append(thisInput)
+    for this_interface_to_remove in interfaces_to_remove:
+        input.pop(this_interface_to_remove)
+        output.pop(this_interface_to_remove)
+
     example_deployment.update({"input": input})
     example_deployment.update({"output": output})
     
