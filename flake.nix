@@ -22,6 +22,7 @@
           alejandra
           (python3.withPackages (python-pkgs: [
             python-pkgs.jinja2
+            python-pkgs.pyyaml
           ]))
         ];
       };
