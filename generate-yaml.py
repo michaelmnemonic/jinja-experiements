@@ -24,7 +24,7 @@ def main():
     # construct example deployment
     example_deployment = {
         "name": "Example deployment",
-        "description": "This is an example deployment to test jinja templates. This description is intentionally very long to test breaking of text into several lines.",
+        "description": "This is an example deployment to test Jinja templates. This description is intentionally very long to test breaking of text into several lines. It includes various details and explanations to ensure that the template handles longer text blocks effectively. By adding more content, we can see how the text wraps and whether it maintains readability and structure. This process is crucial for understanding how templates manage and display extensive information without losing format or clarity. Additionally, it helps in identifying any potential issues with text overflow or alignment in the rendered output.",
         "functions": ["read_input_data", "validate_raw_input"]}
 
     # in and outputs are the combined in and outputs of all functions
