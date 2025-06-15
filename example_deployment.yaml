@@ -5,16 +5,17 @@ deployment:
         input:
             external_input: {
                 type: raw_data,
+                human_input: true
             }
-            
+                        
         output:
             validated_data: {
-                type: data,
+                type: data
             }
-            state_of_function: {
-                type: error_code,
+                        state_of_function: {
+                type: error_code
             }
-            
+                        
         functions:
          - read_input_data
          - validate_raw_input

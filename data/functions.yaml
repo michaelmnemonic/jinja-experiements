@@ -3,7 +3,8 @@ functions:
         description: This functions reads data from an input
         input:
             external_input: {
-                type: raw_data
+                type: raw_data,
+                human_input: "true"
             }
         output:
             input_data: {

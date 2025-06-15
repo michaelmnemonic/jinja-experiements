@@ -1,10 +1,17 @@
-            {%- macro print_list_of_interfaces(list_of_interfaces) -%}
+{%- macro print_list_of_interfaces(list_of_interfaces) -%}
             {% for key, value in list_of_interfaces.items() %}
             {{- key + ": {" }}
-                {{ "type: " + value["type"] + ","}}
+            {% if value["human_input"] %}
+                {{- "    type: " + value["type"] + ","}}
+                {{ "human_input: " + value["human_input"] }}
             {{ "}" }}
+            {% else %}
+                {{- "    type: " + value["type"]}}
+            {{ "}" }}
+            {% endif %}
             {% endfor %}
-            {%- endmacro -%}
+{%- endmacro -%}
+
 deployment:
     {{name}}:
         description: {{description}}
