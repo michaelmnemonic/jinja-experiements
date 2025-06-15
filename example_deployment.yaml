@@ -1,34 +1,24 @@
-
 deployment:
     Example deployment:
-        description: This is an example deployment to test jinja templates:
-        input:
-            
+        description: This is an example deployment to test jinja templates
 
+        input:
             external_input: {
                 type: raw_data,
             }
-
             input_data: {
                 type: data,
             }
-
-
-        output:
             
-
+        output:
             input_data: {
                 type: data,
             }
-
             validated_data: {
                 type: data,
             }
-
-
+            
         functions:
-         
          - read_input_data
-         
          - validate_raw_input
          

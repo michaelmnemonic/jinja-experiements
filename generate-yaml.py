@@ -13,7 +13,9 @@ def load_list_of_functions(file_path):
 def main():
     env = Environment(
         loader=PackageLoader("generate-yaml"),
-        autoescape=select_autoescape()
+        autoescape=select_autoescape(),
+        lstrip_blocks = False,
+        trim_blocks= True
     )
 
     # read list of functions

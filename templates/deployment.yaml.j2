@@ -1,18 +1,19 @@
-{% macro print_list_of_interfaces(list_of_interfaces) %}
-{% for key, value in list_of_interfaces.items() %}
-            {{ key + ": {" }}
+            {%- macro print_list_of_interfaces(list_of_interfaces) -%}
+            {% for key, value in list_of_interfaces.items() %}
+            {{- key + ": {" }}
                 {{ "type: " + value["type"] + ","}}
             {{ "}" }}
-{% endfor %}
-{% endmacro %}
+            {% endfor %}
+            {%- endmacro -%}
 deployment:
     {{name}}:
-        description: {{description}}:
+        description: {{description}}
+
         input:
             {{print_list_of_interfaces(input)}}
         output:
             {{print_list_of_interfaces(output)}}
         functions:
          {% for thisFunction in functions %}
-         {{ "- " + thisFunction }}
+         {{- "- " + thisFunction }}
          {% endfor %}
