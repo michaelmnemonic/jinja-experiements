@@ -2,10 +2,14 @@ deployment:
     {{name}}:
         description: {{description}}:
         input:
-            {{input}}
+            {% for key, value in input.items() %}
+            {{ key + ": {" }}
+                {{ "    type: " + value["type"] + ","}}
+            {{ "}" }}
+            {% endfor %}
         output:
             {{output}}
         functions:
-            {% for thisFunction in functions %}
-                {{ "- " + thisFunction }}
-            {% endfor %}
+         {% for thisFunction in functions %}
+         {{ "- " + thisFunction }}
+         {% endfor %}
