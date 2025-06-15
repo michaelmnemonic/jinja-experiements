@@ -6,4 +6,6 @@ deployment:
         output:
             {{output}}
         functions:
-            {{functions}}
+            {% for thisFunction in functions %}
+                {{ "- " + thisFunction }}
+            {% endfor %}

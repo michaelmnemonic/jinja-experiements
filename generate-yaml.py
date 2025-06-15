@@ -30,7 +30,10 @@ def main():
     for thisFunction in example_deployment["functions"]:
         input.update(list_of_functions[thisFunction]["input"])
 
-    example_deployment = {"input": input}
+    example_deployment.update({"input": input})
+
+    for thisFunction in example_deployment["functions"]:
+        print("- " + thisFunction)
     
     template = env.get_template("deployment.yaml.j2")
     print(template.render(example_deployment))
