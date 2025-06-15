@@ -1,3 +1,7 @@
+{# Interfaces are provided as dictionary with multiple entries. #}
+{# This macro "enrolls" the dict, puts each interfaces in its   #}
+{# own block with its properties below. Note that this macro    #}
+{# includes a trailing new-line                                 #}
 {% macro print_list_of_interfaces(list_of_interfaces) %}
 {% for key, value in list_of_interfaces.items() %}
             {{key}}: {
