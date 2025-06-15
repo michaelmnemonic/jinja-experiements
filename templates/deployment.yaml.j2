@@ -1,26 +1,24 @@
-{%- macro print_list_of_interfaces(list_of_interfaces) -%}
-            {% for key, value in list_of_interfaces.items() %}
-            {{- key + ": {" }}
-            {% if value["human_input"] %}
-                {{- "    type: " + value["type"] + ","}}
-                {{ "human_input: " + value["human_input"] }}
-            {{ "}" }}
-            {% else %}
-                {{- "    type: " + value["type"]}}
-            {{ "}" }}
-            {% endif %}
-            {% endfor %}
-{%- endmacro -%}
-
+{% macro print_list_of_interfaces(list_of_interfaces) %}
+{% for key, value in list_of_interfaces.items() %}
+            {{key}}: {
+{% if value["human_input"] %}
+                type: {{value["type"]}},
+                human_input: {{value["human_input"]}}
+{% else %}
+                type: {{value["type"]}}
+{% endif %}
+            }
+{% endfor %}
+{% endmacro %}
 deployment:
     {{name}}:
-        description: {{description}}
+        description: {{ ('\n' ~ description) | wordwrap(78) | replace('\n', '\n            ') }}
 
         input:
-            {{print_list_of_interfaces(input)}}
+{{print_list_of_interfaces(input)}}
         output:
-            {{print_list_of_interfaces(output)}}
+{{print_list_of_interfaces(output)}}
         functions:
-         {% for thisFunction in functions %}
-         {{- "- " + thisFunction }}
-         {% endfor %}
+{% for thisFunction in functions %}
+         - {{thisFunction }}
+{% endfor %}

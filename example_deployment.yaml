@@ -1,22 +1,23 @@
 deployment:
     Example deployment:
-        description: This is an example deployment to test jinja templates
+        description: 
+            This is an example deployment to test jinja templates. This description is
+            intentionally very long to test breaking of text into several lines.
 
         input:
             external_input: {
                 type: raw_data,
                 human_input: true
             }
-                        
+
         output:
             validated_data: {
                 type: data
             }
-                        state_of_function: {
+            state_of_function: {
                 type: error_code
             }
-                        
+
         functions:
          - read_input_data
          - validate_raw_input
-         

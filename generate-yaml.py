@@ -14,7 +14,7 @@ def main():
     env = Environment(
         loader=PackageLoader("generate-yaml"),
         autoescape=select_autoescape(),
-        lstrip_blocks = False,
+        lstrip_blocks = True,
         trim_blocks= True
     )
 
@@ -24,7 +24,7 @@ def main():
     # construct example deployment
     example_deployment = {
         "name": "Example deployment",
-        "description": "This is an example deployment to test jinja templates",
+        "description": "This is an example deployment to test jinja templates. This description is intentionally very long to test breaking of text into several lines.",
         "functions": ["read_input_data", "validate_raw_input"]}
 
     # in and outputs are the combined in and outputs of all functions
