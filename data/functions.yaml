@@ -1,0 +1,23 @@
+functions:
+    read_input_data:
+        description: This functions reads data from an input
+        input:
+            external_input: {
+                type: raw_data
+            }
+        output:
+            input_data: {
+                type: data
+            }
+
+    validate_raw_input:
+        description: This function reads data and is able to validate it. Invalid data is removed
+        input:
+            input_data: {
+                type: data
+            }
+        output:
+            validated_data: {
+                type: data
+            }
+

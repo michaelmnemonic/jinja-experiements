@@ -1,0 +1,9 @@
+deployment:
+    [name]:
+        [description]:
+        input:
+            [input]
+        output:
+            [output]
+        functions:
+            [functions]
